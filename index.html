@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Card</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="scene">
+    <div class="card" id="card">
+
+      <!-- FRONT -->
+      <section class="face front">
+        <div class="top">
+          <div class="crest">
+            <img src="images.png" alt="University logo">
+          </div>
+          <div class="uni-name">Capital Unversity of Science &amp; Technology</div>
+        </div>
+
+        <div class="card-title">Student Card</div>
+
+        <div class="body">
+          <div class="photo">
+            <img src="uzair.image.jpeg" alt="Student photo">
+          </div>
+          <dl class="details">
+            <dt>Name:</dt><dd>Uzair Khan</dd>
+            <dt>Father Name:</dt><dd>Bahadur Khan</dd>
+            <dt>Student ID:</dt><dd>BSE241111</dd>
+            <dt>Program:</dt><dd>BSE</dd>
+            <dt>Date of Issuse:</dt><dd>02-feb-2024</dd>
+          </dl>
+        </div>
+
+        <div class="bottom">
+          <div class="issuer">
+            <span class="signature-text">Uzair</span>
+            <span class="issued">Issuing Authority</span>
+          </div>
+          <span class="valid">Valid till - <span class="date">Feb 2028</span></span>
+        </div>
+      </section>
+
+      <!-- BACK -->
+      <section class="face back">
+        <div class="back-top">Instructions</div>
+
+        <div class="back-body">
+          <ol class="rules">
+            <li>This card is the property of Capital University of Science &amp; Technology.</li>
+            <li>Carry this card at all times on campus and show it whenever asked.</li>
+            <li>This card is not transferable. Use by any other person is not allowed.</li>
+            <li>Report a lost or damaged card to the administration office immediately.</li>
+            <li>If found, please return it to the university administration office.</li>
+          </ol>
+
+          <div class="code">
+            <div class="qr" id="qr"></div>
+            <span class="code-text">BSE241111</span>
+          </div>
+        </div>
+
+        <div class="back-bottom">
+          <div class="b-name">Capital University of Science &amp; Technology</div>
+          <div class="b-address">Islamabad Expressway, Kahuta Road, Zone-5, Islamabad - Pakistan</div>
+          <div class="b-contact">
+            <span>Email: info@cust.edu.pk</span>
+            <span>Contact: +92 51 000 0000</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <button id="flip" type="button">Flip card</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    const card = document.getElementById('card');
+    document.getElementById('flip').addEventListener('click', () => card.classList.toggle('flipped'));
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+
+    // QR code (change the text to any ID or link you want)
+    new QRCode(document.getElementById('qr'), {
+      text: 'BSE241111',
+      width: 96,
+      height: 96,
+      colorDark: '#161b22',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.M
+    });
+  </script>
+</body>
+</html>
